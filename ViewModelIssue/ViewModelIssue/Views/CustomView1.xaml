@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ViewModelIssue.Views.CustomView1"
+             x:Name="CustomViewContentView">
+  <ContentView.Content>
+      <StackLayout>
+          <Label Text="CustomView1" />
+            <RefreshView IsRefreshing="{Binding IsRefreshing, Source={x:Reference CustomViewContentView}}" Command="{Binding RefreshCommand, Source={x:Reference CustomViewContentView}}">
+                <ListView  ItemsSource="{Binding Items, Source={x:Reference CustomViewContentView}}" Footer="" SeparatorVisibility="None">
+                  <ListView.ItemTemplate>
+                      <DataTemplate>
+                          <ViewCell>
+                              <Frame CornerRadius="6" Padding="4" BackgroundColor="CornflowerBlue" Margin="2" HasShadow="False">
+                                  <Label Text="{Binding Text}" VerticalTextAlignment="Center" LineBreakMode="TailTruncation" StyleClass="SmallFontLabel, WhiteTextLabel" />
+                              </Frame>
+                          </ViewCell>
+                      </DataTemplate>
+                  </ListView.ItemTemplate>
+              </ListView>
+          </RefreshView>
+        </StackLayout>
+  </ContentView.Content>
+</ContentView>
